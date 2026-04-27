@@ -1,5 +1,6 @@
 ﻿Console.WriteLine("Dimenciones del inventario");
 Console.WriteLine();
+
 Console.Write("Cantidad de filas: ");
 int fila = int.Parse(Console.ReadLine());
 
@@ -18,39 +19,22 @@ for (int i = 0; i < fila; i++)
 }
 
 bool encontrada = false;
-Console.Write("Buscar fila: ");
+Console.Write("Valor a buscar: ");
 int buscar = int.Parse(Console.ReadLine());
-
-Console.WriteLine("Buscar");
 
 for (int i = 0; i < fila; i++)
 {
-    if (i == buscar)
+    for (int j = 0; j < columna; j++)
     {
-        Console.Write("Valores de la fila");
-
-        for (int j = 0; j < columna; j++)
+        if (matriz[i, j] == buscar)
         {
-            Console.Write(matriz[i, j] + " ");
+            Console.WriteLine($"Valor encontrado en fila {i}, columna {j}");
+            encontrada = true;
         }
-
-        Console.WriteLine();
-        encontrada = true;
     }
 }
 
 if (!encontrada)
 {
-    Console.WriteLine("La posición no existe");
-}
-Console.WriteLine();
-
-Console.WriteLine($"Matriz:{fila}x{columna}");
-for (int i = 0; i < fila; i++)
-{
-    for (int j = 0; j < columna; j++)
-    {
-        Console.Write(matriz[i, j] + " ");
-    }
-    Console.WriteLine();
+    Console.WriteLine("El valor no existe en la matriz");
 }
